@@ -309,7 +309,7 @@ export default function GameBoard({
                   </div>
                 ) : currentContent ? (
                   <p className="text-white text-xl md:text-3xl font-black text-center leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] tracking-tight">
-                    "{currentContent.content}"
+                    &quot;{currentContent.content}&quot;
                   </p>
                 ) : (
                   <div className="flex flex-col items-center gap-4 animate-pulse">

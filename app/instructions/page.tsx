@@ -143,11 +143,11 @@ export default function InstructionsPage() {
                   Paso 3: Completar o Responder
                 </h3>
                 <p>
-                  <strong className="text-pink-300">Para Preguntas:</strong> Responde honestamente y presiona "Respondido" para ganar puntos.
+                  <strong className="text-pink-300">Para Preguntas:</strong> Responde honestamente y presiona &quot;Respondido&quot; para ganar puntos.
                 </p>
                 <p className="mt-2">
-                  <strong className="text-pink-300">Para Desafíos:</strong> Completa el desafío y presiona "Completado" para ganar puntos, 
-                  o "Rechazar" si no puedes completarlo (pierdes puntos).
+                  <strong className="text-pink-300">Para Desafíos:</strong> Completa el desafío y presiona &quot;Completado&quot; para ganar puntos, 
+                  o &quot;Rechazar&quot; si no puedes completarlo (pierdes puntos).
                 </p>
               </div>
 
@@ -156,7 +156,7 @@ export default function InstructionsPage() {
                   Paso 4: Siguiente Turno
                 </h3>
                 <p>
-                  Después de completar o responder, presiona "Siguiente Turno" para pasar al siguiente jugador.
+                  Después de completar o responder, presiona &quot;Siguiente Turno&quot; para pasar al siguiente jugador.
                 </p>
               </div>
             </div>
