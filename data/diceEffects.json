@@ -1,0 +1,81 @@
+{
+  "effects": [
+    {
+      "id": "multiplier_2x",
+      "name": "Doble Puntos",
+      "description": "Los puntos de este turno se multiplican x2",
+      "type": "multiplier",
+      "value": 2,
+      "color": "green"
+    },
+    {
+      "id": "multiplier_3x",
+      "name": "Triple Puntos",
+      "description": "Los puntos de este turno se multiplican x3",
+      "type": "multiplier",
+      "value": 3,
+      "color": "blue"
+    },
+    {
+      "id": "multiplier_5x",
+      "name": "Puntos Épicos",
+      "description": "Los puntos de este turno se multiplican x5",
+      "type": "multiplier",
+      "value": 5,
+      "color": "purple"
+    },
+    {
+      "id": "double_challenge",
+      "name": "Desafío Doble",
+      "description": "Debes completar 2 desafíos seguidos",
+      "type": "challenge_modifier",
+      "value": 2,
+      "color": "orange"
+    },
+    {
+      "id": "skip_turn",
+      "name": "Pasar Turno",
+      "description": "Pasas tu turno sin penalización",
+      "type": "turn_modifier",
+      "color": "yellow"
+    },
+    {
+      "id": "special_round",
+      "name": "Ronda Especial",
+      "description": "Desafío extremo con puntos extra",
+      "type": "special",
+      "bonus": 30,
+      "color": "red"
+    },
+    {
+      "id": "swap_challenge",
+      "name": "Intercambio",
+      "description": "Intercambia tu desafío con otro jugador",
+      "type": "swap",
+      "color": "pink"
+    },
+    {
+      "id": "choose_challenge",
+      "name": "Ventaja",
+      "description": "Elige tu propio desafío de cualquier categoría",
+      "type": "advantage",
+      "color": "cyan"
+    },
+    {
+      "id": "penalty",
+      "name": "Penalización",
+      "description": "Pierdes 15 puntos o debes hacer un desafío extra",
+      "type": "penalty",
+      "value": 15,
+      "color": "darkred"
+    },
+    {
+      "id": "bonus_points",
+      "name": "Bonificación",
+      "description": "Ganas 25 puntos gratis",
+      "type": "bonus",
+      "value": 25,
+      "color": "gold"
+    }
+  ]
+}

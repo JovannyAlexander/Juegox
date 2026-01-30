@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "id": "all_lose_points",
+      "name": "Caos Total",
+      "description": "Todos los jugadores pierden 10 puntos",
+      "effect": "all_lose_points",
+      "value": 10
+    },
+    {
+      "id": "last_loses_turn",
+      "name": "Último Lugar",
+      "description": "El jugador con menos puntos pierde su siguiente turno",
+      "effect": "last_loses_turn"
+    },
+    {
+      "id": "double_or_nothing",
+      "name": "Doble o Nada",
+      "description": "El siguiente desafío vale el doble de puntos o cero",
+      "effect": "double_or_nothing"
+    },
+    {
+      "id": "swap_points",
+      "name": "Intercambio de Poder",
+      "description": "El último y el primero intercambian sus puntos",
+      "effect": "swap_points"
+    },
+    {
+      "id": "group_challenge",
+      "name": "Desafío Grupal",
+      "description": "Todos los jugadores deben completar un desafío juntos",
+      "effect": "group_challenge"
+    },
+    {
+      "id": "bonus_round",
+      "name": "Ronda de Bonificación",
+      "description": "Todos los puntos de esta ronda se multiplican por 2",
+      "effect": "bonus_multiplier",
+      "value": 2
+    },
+    {
+      "id": "steal_points",
+      "name": "Robo de Puntos",
+      "description": "El jugador actual puede robar 20 puntos a cualquier jugador",
+      "effect": "steal_points",
+      "value": 20
+    },
+    {
+      "id": "free_pass",
+      "name": "Pase Libre",
+      "description": "El jugador actual puede saltar su desafío sin penalización",
+      "effect": "free_pass"
+    },
+    {
+      "id": "double_challenge",
+      "name": "Doble Desafío",
+      "description": "El jugador actual debe completar 2 desafíos seguidos",
+      "effect": "double_challenge"
+    },
+    {
+      "id": "points_redistribution",
+      "name": "Redistribución",
+      "description": "Todos los puntos se redistribuyen equitativamente",
+      "effect": "redistribute_points"
+    }
+  ]
+}

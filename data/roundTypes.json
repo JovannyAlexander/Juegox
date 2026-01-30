@@ -1,0 +1,70 @@
+{
+  "rounds": [
+    {
+      "id": "fire_round",
+      "name": "Ronda de Fuego",
+      "description": "Todos los desafíos son extremos, puntos x2",
+      "multiplier": 2,
+      "intensity": "extreme",
+      "duration": 3
+    },
+    {
+      "id": "truth_round",
+      "name": "Ronda de Verdad",
+      "description": "Solo preguntas, puntos por honestidad",
+      "type": "questions_only",
+      "bonus": 15,
+      "duration": 3
+    },
+    {
+      "id": "challenge_round",
+      "name": "Ronda de Desafío",
+      "description": "Solo desafíos físicos, puntos x1.5",
+      "type": "challenges_only",
+      "multiplier": 1.5,
+      "category": "fisico",
+      "duration": 3
+    },
+    {
+      "id": "couples_round",
+      "name": "Ronda de Parejas",
+      "description": "Desafíos en parejas, puntos x2",
+      "type": "couples",
+      "multiplier": 2,
+      "duration": 2
+    },
+    {
+      "id": "tabu_round",
+      "name": "Ronda Tabú",
+      "description": "Solo contenido tabú, puntos x3",
+      "multiplier": 3,
+      "category": "tabu",
+      "duration": 2
+    },
+    {
+      "id": "group_round",
+      "name": "Ronda Grupal",
+      "description": "Todos participan en cada desafío, puntos x2",
+      "type": "group",
+      "multiplier": 2,
+      "duration": 2
+    },
+    {
+      "id": "digital_round",
+      "name": "Ronda Digital",
+      "description": "Solo desafíos digitales, puntos x1.5",
+      "type": "challenges_only",
+      "multiplier": 1.5,
+      "category": "digital",
+      "duration": 3
+    },
+    {
+      "id": "extreme_round",
+      "name": "Ronda Extrema",
+      "description": "Contenido máximo, puntos x3",
+      "multiplier": 3,
+      "intensity": "insane",
+      "duration": 2
+    }
+  ]
+}
