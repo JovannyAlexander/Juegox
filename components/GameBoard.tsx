@@ -251,37 +251,37 @@ export default function GameBoard({
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 h-screen flex flex-col overflow-hidden font-sans">
+    <div className="max-w-7xl mx-auto px-2 md:px-4 min-h-[100dvh] flex flex-col overflow-hidden font-sans pb-4 md:pb-0">
       
       {/* 1. HEADER ULTRA COMPACTO */}
-      <div className="flex items-center justify-between py-2 border-b border-white/10 flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="px-3 py-1 bg-white/5 rounded-full border border-white/10 backdrop-blur-md flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div>
-            <span className="text-white font-bold text-xs uppercase tracking-tighter">{currentPlayer.name}</span>
+      <div className="flex items-center justify-between py-3 border-b border-white/10 flex-shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="px-4 py-1.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md flex items-center gap-2 shadow-lg">
+            <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+            <span className="text-white font-black text-xs md:text-sm uppercase tracking-tighter">{currentPlayer.name}</span>
           </div>
           {liquorConfig.enabled && (
-            <div className="px-2 py-1 bg-amber-500/20 rounded-md border border-amber-500/30 text-[10px] font-black text-amber-200 uppercase tracking-widest">
+            <div className="px-3 py-1.5 bg-amber-500/20 rounded-lg border border-amber-500/30 text-[10px] md:text-xs font-black text-amber-200 uppercase tracking-widest shadow-inner">
               {liquorConfig.type === "cerveza" ? "🍺 CERVEZA" : "🥃 TRAGO"}
             </div>
           )}
         </div>
         
-        <div className="flex gap-1">
+        <div className="flex gap-2">
           {activeRound && (
-            <div className="px-3 py-1 bg-red-600/40 rounded-full border border-red-500/50 animate-pulse">
-              <span className="text-white text-[10px] font-black uppercase tracking-widest italic">{activeRound.name}</span>
+            <div className="px-4 py-1.5 bg-red-600/40 rounded-full border border-red-500/50 animate-pulse shadow-lg">
+              <span className="text-white text-[10px] md:text-xs font-black uppercase tracking-widest italic">{activeRound.name}</span>
             </div>
           )}
         </div>
       </div>
 
       {/* 2. ÁREA CENTRAL DE JUEGO */}
-      <div className="flex-1 flex flex-col md:flex-row gap-4 py-4 min-h-0">
+      <div className="flex-1 flex flex-col lg:flex-row gap-4 py-4 min-h-0 overflow-y-auto lg:overflow-hidden custom-scrollbar">
         
         {/* Columna Izquierda: CONTENIDO (TARJETA) */}
-        <div className="flex-[1.5] flex flex-col min-h-0">
-          <div className="flex-1 bg-black/40 rounded-[2rem] border border-white/10 backdrop-blur-xl relative overflow-hidden group shadow-2xl">
+        <div className="flex-[1.5] flex flex-col min-h-[350px] lg:min-h-0">
+          <div className="flex-1 bg-black/40 rounded-[2rem] border border-white/10 backdrop-blur-xl relative overflow-hidden group shadow-2xl flex flex-col">
             {/* Fondo con color sólido suave */}
             <div className="absolute inset-0 bg-gradient-to-br from-rose-950/20 via-zinc-900 to-red-950/20"></div>
             
@@ -289,51 +289,53 @@ export default function GameBoard({
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
 
             {/* Contenido de la tarjeta */}
-            <div className="relative h-full flex flex-col p-6 md:p-10">
-              <div className="mb-4">
-                <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.3em] shadow-xl ${
+            <div className="relative h-full flex flex-col p-6 md:p-8 lg:p-10">
+              <div className="mb-6">
+                <span className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.3em] shadow-2xl ${
                   currentContent?.type === 'question' ? 'bg-blue-600 text-white' : 'bg-red-600 text-white'
                 }`}>
                   {currentContent?.type === 'question' ? '💌 PREGUNTA' : '🔥 DESAFÍO'}
                 </span>
               </div>
               
-              <div className="flex-1 flex items-center justify-center">
+              <div className="flex-1 flex items-center justify-center px-2">
                 {waitingForSpin ? (
-                  <div className="flex flex-col items-center gap-6 animate-fadeIn">
-                    <div className="text-pink-500 text-6xl md:text-8xl animate-bounce">🎯</div>
-                    <div className="text-center">
-                      <p className="text-white text-2xl md:text-4xl font-black uppercase tracking-tighter mb-2">TURNO DE {currentPlayer.name}</p>
-                      <p className="text-pink-300 text-sm font-bold tracking-widest animate-pulse">GIRA LA RULETA PARA REVELAR TU DESTINO</p>
+                  <div className="flex flex-col items-center gap-6 animate-fadeIn text-center">
+                    <div className="text-pink-500 text-7xl md:text-8xl lg:text-9xl animate-bounce drop-shadow-[0_0_20px_rgba(236,72,153,0.5)]">🎯</div>
+                    <div>
+                      <p className="text-white text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-3 leading-none">TURNO DE {currentPlayer.name}</p>
+                      <p className="text-pink-300 text-xs md:text-sm lg:text-base font-bold tracking-[0.2em] animate-pulse">GIRA LA RULETA PARA REVELAR TU DESTINO</p>
                     </div>
                   </div>
                 ) : currentContent ? (
-                  <p className="text-white text-xl md:text-3xl font-black text-center leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] tracking-tight">
-                    &quot;{currentContent.content}&quot;
-                  </p>
+                  <div className="w-full">
+                    <p className="text-white text-2xl md:text-4xl lg:text-5xl font-black text-center leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] tracking-tight animate-fadeIn">
+                      &quot;{currentContent.content}&quot;
+                    </p>
+                  </div>
                 ) : (
-                  <div className="flex flex-col items-center gap-4 animate-pulse">
-                    <div className="w-12 h-12 border-4 border-pink-500 border-t-transparent rounded-full animate-spin"></div>
-                    <span className="text-white/40 text-xs font-black tracking-widest">PREPARANDO EL DESEO...</span>
+                  <div className="flex flex-col items-center gap-6 animate-pulse">
+                    <div className="w-16 h-16 border-4 border-pink-500 border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-white/40 text-xs md:text-sm font-black tracking-[0.3em]">PREPARANDO EL DESEO...</span>
                   </div>
                 )}
               </div>
 
               {/* Botones de Acción (Incrustados en la tarjeta) */}
-              <div className="mt-6 flex gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 {!challengeCompleted && currentContent && (
                   <>
                     {currentContent.type === "challenge" ? (
                       <>
                         <button
                           onClick={() => handleComplete(true)}
-                          className="flex-1 py-4 bg-white text-black font-black rounded-2xl hover:bg-green-500 hover:text-white transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs uppercase tracking-wider"
+                          className="flex-1 py-4 md:py-5 bg-white text-black font-black rounded-2xl hover:bg-green-500 hover:text-white transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs md:text-sm uppercase tracking-widest"
                         >
                           Hecho ✓
                         </button>
                         <button
                           onClick={() => handleComplete(false)}
-                          className="flex-1 py-4 bg-red-600 text-white font-black rounded-2xl hover:bg-red-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs uppercase tracking-wider"
+                          className="flex-1 py-4 md:py-5 bg-red-600 text-white font-black rounded-2xl hover:bg-red-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs md:text-sm uppercase tracking-widest"
                         >
                           Rechazar ✗
                         </button>
@@ -341,7 +343,7 @@ export default function GameBoard({
                     ) : (
                       <button
                         onClick={() => handleComplete(true)}
-                        className="flex-1 py-4 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs uppercase tracking-wider"
+                        className="flex-1 py-4 md:py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition-all transform hover:scale-[1.02] active:scale-95 shadow-2xl text-xs md:text-sm uppercase tracking-widest"
                       >
                         Respondido →
                       </button>
@@ -352,7 +354,7 @@ export default function GameBoard({
                 {challengeCompleted && currentContent?.type === "challenge" && (
                   <button
                     onClick={handleNext}
-                    className="flex-1 py-4 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-black rounded-2xl animate-pulse shadow-2xl text-xs uppercase tracking-widest"
+                    className="flex-1 py-4 md:py-5 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-black rounded-2xl animate-pulse shadow-2xl text-xs md:text-sm uppercase tracking-[0.2em]"
                   >
                     Siguiente Turno →
                   </button>
@@ -366,7 +368,7 @@ export default function GameBoard({
         <div className="flex-1 flex flex-col gap-4 min-h-0">
           
           {/* Ruleta */}
-          <div className="bg-white/5 rounded-[2rem] border border-white/10 p-4 flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
+          <div className="bg-white/5 rounded-[2rem] border border-white/10 p-6 flex items-center justify-center relative overflow-hidden backdrop-blur-sm shadow-xl">
             <LuckyWheel
               onRoll={handleDiceRoll}
               disabled={challengeCompleted || !waitingForSpin}
@@ -375,8 +377,8 @@ export default function GameBoard({
           </div>
 
           {/* Marcador */}
-          <div className="flex-1 bg-white/5 rounded-[2rem] border border-white/10 p-4 min-h-0 flex flex-col">
-            <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em] mb-3 text-center">Ranking de Pasión</div>
+          <div className="flex-1 bg-white/5 rounded-[2rem] border border-white/10 p-6 min-h-0 flex flex-col shadow-xl">
+            <div className="text-[10px] md:text-xs font-black text-white/40 uppercase tracking-[0.3em] mb-4 text-center">Ranking de Pasión</div>
             <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
               <ScoreBoard
                 players={players}
@@ -387,18 +389,18 @@ export default function GameBoard({
           </div>
 
           {/* Controles de Sistema */}
-          <div className="flex gap-2 flex-shrink-0">
+          <div className="flex gap-3 flex-shrink-0">
             <button
               onClick={handleNewContent}
-              className="px-4 py-3 bg-white/10 text-white font-bold rounded-xl text-[10px] uppercase tracking-widest hover:bg-white/20 transition-all border border-white/10"
+              className="px-6 py-4 bg-white/10 text-white font-black rounded-2xl text-[10px] md:text-xs uppercase tracking-widest hover:bg-white/20 transition-all border border-white/10 flex-1 sm:flex-initial"
             >
               🔄 Re-shuffle
             </button>
             <button
               onClick={onGameEnd}
-              className="flex-1 py-3 bg-red-900/40 text-red-200 font-bold rounded-xl text-[10px] uppercase tracking-widest hover:bg-red-800/60 transition-all border border-red-500/20"
+              className="flex-1 py-4 bg-red-900/40 text-red-200 font-black rounded-2xl text-[10px] md:text-xs uppercase tracking-widest hover:bg-red-800/60 transition-all border border-red-500/20"
             >
-              🚪 Salir
+              🚪 Salir del Juego
             </button>
           </div>
         </div>

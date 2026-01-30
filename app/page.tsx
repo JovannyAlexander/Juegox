@@ -65,12 +65,12 @@ export default function Home() {
         <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-rose-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 h-screen flex flex-col">
+      <div className="container mx-auto px-4 relative z-10 min-h-[100dvh] flex flex-col">
         {!gameStarted ? (
-          <>
+          <div className="flex flex-col flex-1">
             <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4 flex-shrink-0 pt-4">
               <div className="text-center md:text-left">
-                <h1 className="text-3xl md:text-5xl font-black mb-2 text-white drop-shadow-[0_0_30px_rgba(255,23,68,0.9)] bg-gradient-to-r from-rose-200 via-pink-200 to-red-200 bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-2 text-white drop-shadow-[0_0_30px_rgba(255,23,68,0.9)] bg-gradient-to-r from-rose-200 via-pink-200 to-red-200 bg-clip-text text-transparent">
                   🍸 Juego para Grupos 🍷
                 </h1>
                 <p className="text-rose-100 text-sm md:text-base font-bold flex items-center justify-center md:justify-start gap-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
@@ -81,23 +81,25 @@ export default function Home() {
               </div>
               <Link
                 href="/instructions"
-                className="px-4 py-2 glass-effect text-white font-bold rounded-xl transition-all seductive-hover shadow-xl border-2 border-pink-500/50 hover:border-pink-400 text-sm"
+                className="px-6 py-2.5 glass-effect text-white font-bold rounded-xl transition-all seductive-hover shadow-xl border-2 border-pink-500/50 hover:border-pink-400 text-sm md:text-base whitespace-nowrap"
               >
                 📖 Instrucciones
               </Link>
             </div>
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 pb-8">
               <GameSetup onGameStart={handleGameStart} />
             </div>
-          </>
+          </div>
         ) : (
-          <GameBoard
-            players={players}
-            gameMode={gameMode}
-            intensity={intensity}
-            liquorConfig={liquorConfig}
-            onGameEnd={handleGameEnd}
-          />
+          <div className="flex-1 h-full">
+            <GameBoard
+              players={players}
+              gameMode={gameMode}
+              intensity={intensity}
+              liquorConfig={liquorConfig}
+              onGameEnd={handleGameEnd}
+            />
+          </div>
         )}
       </div>
     </main>

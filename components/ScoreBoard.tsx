@@ -36,31 +36,31 @@ export default function ScoreBoard({
 
   return (
     <div 
-      className="rounded-xl p-3 neon-border shadow-lg seductive-glow overflow-hidden relative glass-effect bg-zinc-900/40"
+      className="rounded-2xl p-4 neon-border shadow-lg seductive-glow overflow-hidden relative glass-effect bg-zinc-900/40 border border-white/10"
     >
       <div className="relative z-10">
-        <div className="text-center mb-2">
-          <h2 className="text-lg font-black neon-text text-pink-400">
+        <div className="text-center mb-4">
+          <h2 className="text-sm md:text-base font-black neon-text text-pink-400 uppercase tracking-widest">
             🏆 Clasificación
           </h2>
         </div>
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           {scoreboard.map((entry, index) => {
             const isCurrentPlayer = entry.player.id === currentPlayerId;
             return (
               <div
                 key={entry.player.id}
-                className={`flex items-center justify-between p-2 rounded-lg text-sm ${
+                className={`flex items-center justify-between p-3 rounded-xl transition-all ${
                   isCurrentPlayer
-                    ? "bg-gradient-to-r from-pink-600/60 to-purple-600/60 border border-pink-400"
-                    : "bg-gray-700/40 border border-gray-600/50"
+                    ? "bg-white text-black shadow-xl scale-[1.02] border-white/20"
+                    : "bg-white/5 text-gray-300 border border-white/5"
                 }`}
               >
-                <div className="flex items-center gap-2 flex-1 min-w-0">
-                  <span className="text-lg flex-shrink-0">{getRankEmoji(index)}</span>
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <span className="text-lg md:text-xl flex-shrink-0">{getRankEmoji(index)}</span>
                   <span
-                    className={`font-bold truncate ${
-                      isCurrentPlayer ? "text-white neon-text" : "text-gray-300"
+                    className={`font-black truncate text-xs md:text-sm uppercase tracking-tighter ${
+                      isCurrentPlayer ? "text-black" : "text-white"
                     }`}
                   >
                     {entry.player.name}
@@ -68,17 +68,19 @@ export default function ScoreBoard({
                 </div>
                 <div className="text-right flex-shrink-0">
                   <div
-                    className={`text-base font-bold ${
-                      index === 0
+                    className={`text-sm md:text-base font-black ${
+                      isCurrentPlayer 
+                        ? "text-black" 
+                        : index === 0
                         ? "text-yellow-400"
                         : index === 1
                         ? "text-gray-300"
                         : index === 2
                         ? "text-orange-400"
-                        : "text-gray-400"
+                        : "text-gray-500"
                     }`}
                   >
-                    {entry.score.points}
+                    {entry.score.points} PTS
                   </div>
                 </div>
               </div>

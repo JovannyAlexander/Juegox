@@ -59,11 +59,11 @@ export default function LuckyWheel({ onRoll, disabled = false, contentType = nul
         <div className="absolute -inset-4 bg-gradient-to-r from-pink-600 via-purple-600 to-red-600 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-1000 animate-pulse"></div>
         
         {/* Contenedor principal de la ruleta */}
-        <div className="relative w-40 h-40 md:w-48 md:h-40 flex items-center justify-center">
+        <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
           
           {/* La Ruleta Física */}
           <div 
-            className="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-white/20 shadow-[0_0_50px_rgba(255,23,68,0.5)] overflow-hidden relative"
+            className="w-44 h-44 md:w-52 md:h-52 rounded-full border-4 border-white/20 shadow-[0_0_50px_rgba(255,23,68,0.5)] overflow-hidden relative"
             style={{
               transform: `rotate(${rotation}deg)`,
               transition: isSpinning ? 'transform 5s cubic-bezier(0.15, 0, 0.15, 1)' : 'transform 0.5s ease-out',
